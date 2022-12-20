@@ -16,26 +16,35 @@ body{min-width:320px;}
   border: 10px solid #ccc;
   /*grid-template-areas:*/
   grid: 
-    'header header'
-    'aside main'
-    'footer footer' /* / 1fr 3fr */;
-  /*grid-template-columns: 1fr 3fr;*/
+    'header header header'
+    'aside-a main aside-b'
+    'footer footer footer' /* / 1fr 1fr 1fr */;
+    grid-template-columns: 200px auto 100px;
+    grid-template-rows: 160px auto auto;
+
+  /*grid-template-columns: 1fr 3fr;
     grid-auto-columns: 200px minmax(220px, auto);
+    */
+
+    height:100%;
+
 }
 @media (max-width:768px) {
   .container{
     grid: 
       'header'
-      'aside'
+      'aside-a'
       'main'
+      'aside-b'
       'footer';
-    grid-template-columns: auto;
+    grid-template-rows: max-content; 
   }
 }
 
 .header { grid-area: header; overflow: hidden;} 
-.aside { grid-area: aside;}
-.main-content { grid-area: main;}
+.aside-a { grid-area: aside-a;}
+.main { grid-area: main;}
+.aside-b { grid-area: aside-b;}
 .footer { grid-area: footer; } 
 
 .header .menu {
@@ -86,34 +95,33 @@ body{min-width:320px;}
 <body>
   <div class="container">
   <header class="header item">
-    <h1>header</h1>
+    <h1>.header</h1>
     <div class="menu">
-        <ul>
-            <li><a href="#">menu1</a></li>
-            <li><a href="#">menu2</a></li>
-            <li><a href="#">menu3</a></li>
-            <li><a href="#">menu4</a></li>
-            <li><a href="#">menu5</a></li>
-            <li><a href="#">menu6-긴메뉴긴메뉴긴메뉴긴메뉴긴메뉴긴메뉴긴메뉴긴메뉴긴메뉴</a></li>
-        </ul>
+      <ul>
+        <li><a href="#">menu1</a></li>
+        <li><a href="#">menu2</a></li>
+        <li><a href="#">menu3</a></li>
+        <li><a href="#">menu4-중간메뉴중간메뉴</a></li>
+        <li><a href="#">menu5-조금긴메뉴조금긴메뉴</a></li>
+        <li><a href="#">menu6-아주긴메뉴아주긴메뉴아주긴메뉴아주긴메뉴</a></li>
+      </ul>
     </div>
   </header>
-  <aside class="aside item">.aside</aside>
+  <aside class="aside-a item">.aside-a</aside>
   <main class="main item">
     <h2>.main</h2>
     <ol>
+      <li>list</li>
+      <li>list</li>
+      <li>list</li>
       <li>test</li>
-      <li>test</li>
-      <li>test</li>
-      <li>test</li>
-      <li>test</li>
-      <li>test</li>
+      <li>list</li>
+      <li>list</li>
     </ol>  
   </main>
+  <aside class="aside-b item">.aside-b</aside>
   <footer class="footer item">.footer</footer>
 </div>
-  
-
 
 </body>
 </html>
